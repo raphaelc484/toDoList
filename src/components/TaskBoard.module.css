@@ -1,0 +1,4 @@
+.taskBoardHeader {
+  display: flex;
+  place-content: space-between; 
+}
