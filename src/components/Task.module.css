@@ -12,6 +12,8 @@
 .task label {
   width: 100%;
 
+  margin-left: 1rem;
+
   display: flex;
   align-items: center;
   place-content: space-between;
