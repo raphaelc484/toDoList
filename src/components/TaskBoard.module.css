@@ -1,4 +1,40 @@
 .taskBoardHeader {
   display: flex;
-  place-content: space-between; 
+  place-content: space-between;
+}
+
+.taskBoardHeader strong:nth-child(1) {
+  color: var(--blue);
+}
+
+.taskBoardHeader strong:nth-child(2) {
+  color: var(--purple);
+}
+
+.taskBoardHeader b {
+  color: var(--gray-200);
+  background-color: var(--gray-400);
+  border-radius: 15px;
+  padding: 0.2rem 0.4rem 0.2rem 0.4rem;
+}
+
+.taskBoardEmpty {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 1.5rem;
+  border-top: 1px solid var(--gray-400);
+  border-radius: 8px;
+  padding: 4rem 0 4rem 0;
+  color: var(--gray-300);
+}
+
+.taskBoardEmpty strong {
+  margin-top: 1rem;
+}
+
+.tasks {
+  margin-top: 1.5rem;
+  list-style-type: none;
 }
