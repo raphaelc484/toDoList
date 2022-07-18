@@ -5,8 +5,8 @@ import { Task } from "./Task";
 
 export function TaskBoard() {
   const [tasks, setTasks] = useState([
-    { id: "1", cotent: "Oi" },
-    { id: "2", cotent: "Teste" },
+    { id: "1", content: "Oi" },
+    { id: "2", content: "Teste" },
   ]);
 
   return (
@@ -31,8 +31,8 @@ export function TaskBoard() {
             );
           } else {
             return (
-              <li>
-                <Task id={task.id} task={task.cotent} />
+              <li key={task.id}>
+                <Task id={task.id} task={task.content} />
               </li>
             );
           }
