@@ -4,7 +4,10 @@ import { useState } from "react";
 import { Task } from "./Task";
 
 export function TaskBoard() {
-  const [tasks, setTasks] = useState(["Oi", "teste"]);
+  const [tasks, setTasks] = useState([
+    { id: "1", cotent: "Oi" },
+    { id: "2", cotent: "Teste" },
+  ]);
 
   return (
     <div>
@@ -29,7 +32,7 @@ export function TaskBoard() {
           } else {
             return (
               <li>
-                <Task task={task} />
+                <Task id={task.id} task={task.cotent} />
               </li>
             );
           }
