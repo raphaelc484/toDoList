@@ -2,6 +2,7 @@ import styles from "./TaskBoard.module.css";
 import clipboardImg from "../assets/clipboard.svg";
 import { useState } from "react";
 import { Task } from "./Task";
+import { NewTask } from "./NewTask";
 
 export function TaskBoard() {
   const [tasks, setTasks] = useState([
@@ -9,8 +10,18 @@ export function TaskBoard() {
     { id: "2", content: "Teste" },
   ]);
 
+  function createTask(taskToCreate: string) {
+    console.log(taskToCreate);
+
+    setTasks([
+      ...tasks,
+      { id: String(tasks.length + 1), content: taskToCreate },
+    ]);
+  }
+
   return (
     <div>
+      <NewTask onCreate={createTask} />
       <div className={styles.taskBoardHeader}>
         <strong>
           Tarefas criadas <b>0</b>

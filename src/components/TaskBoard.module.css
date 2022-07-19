@@ -1,6 +1,7 @@
 .taskBoardHeader {
   display: flex;
   place-content: space-between;
+  margin-top: 4rem;
 }
 
 .taskBoardHeader strong:nth-child(1) {
