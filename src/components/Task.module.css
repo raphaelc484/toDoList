@@ -54,3 +54,17 @@
 .task input[type="checkbox"]:checked:hover {
   opacity: 0.8;
 }
+
+.task label button {
+  background: transparent;
+  border: 0;
+  cursor: pointer;
+  color: var(--gray-300);
+  display: flex;
+  align-items: center;
+  border-radius: 2px;
+}
+
+.task label button:hover {
+  color: var(--danger);
+}

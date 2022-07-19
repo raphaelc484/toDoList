@@ -1,20 +1,26 @@
 import styles from "./Task.module.css";
-import trashImg from "../assets/trash.svg";
+import { Trash } from "phosphor-react";
+import { ChangeEventHandler } from "react";
 
 interface TaskProps {
   id: string;
   task: string;
+  onDeleteTask: (taskId: string) => void;
 }
 
-export function Task({ id, task }: TaskProps) {
-  console.log(task);
+export function Task({ id, task, onDeleteTask }: TaskProps) {
+  function handleDeleteTask() {
+    onDeleteTask(id);
+  }
 
   return (
     <div className={styles.task}>
       <input id={id} type="checkbox" />
       <label htmlFor={id}>
         {task}
-        <img src={trashImg} />
+        <button onClick={handleDeleteTask}>
+          <Trash />
+        </button>
       </label>
     </div>
   );

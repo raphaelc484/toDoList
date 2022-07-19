@@ -11,12 +11,18 @@ export function TaskBoard() {
   ]);
 
   function createTask(taskToCreate: string) {
-    console.log(taskToCreate);
-
     setTasks([
       ...tasks,
       { id: String(tasks.length + 1), content: taskToCreate },
     ]);
+  }
+
+  function deleteTask(taskToDelete: string) {
+    const tasksWithoutDeleteChoose = tasks.filter((item) => {
+      return item.id !== taskToDelete;
+    });
+
+    setTasks(tasksWithoutDeleteChoose);
   }
 
   return (
@@ -24,7 +30,7 @@ export function TaskBoard() {
       <NewTask onCreate={createTask} />
       <div className={styles.taskBoardHeader}>
         <strong>
-          Tarefas criadas <b>0</b>
+          Tarefas criadas <b>{tasks.length}</b>
         </strong>
         <strong>
           Concluídas <b>0</b>
@@ -43,7 +49,11 @@ export function TaskBoard() {
           } else {
             return (
               <li key={task.id}>
-                <Task id={task.id} task={task.content} />
+                <Task
+                  id={task.id}
+                  task={task.content}
+                  onDeleteTask={deleteTask}
+                />
               </li>
             );
           }
