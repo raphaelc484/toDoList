@@ -1,5 +1,6 @@
 .task {
   display: flex;
+  gap: 1rem;
   align-items: center;
 
   padding: 1rem;
@@ -12,11 +13,13 @@
 .task label {
   width: 100%;
 
-  margin-left: 1rem;
+  margin-left: 0.5rem;
 
   display: flex;
   align-items: center;
   place-content: space-between;
+
+  word-break: break-all;
 }
 
 .task input[type="checkbox"] {
@@ -63,6 +66,7 @@
   display: flex;
   align-items: center;
   border-radius: 2px;
+  margin-right: 0.5rem;
 }
 
 .task label button:hover {

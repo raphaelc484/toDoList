@@ -41,8 +41,7 @@ export function TaskBoard() {
     setTasks(tasksWithStatusChange);
   }
 
-  const t = tasks.filter((item) => item.check === true);
-  const t2 = tasks.length;
+  const tasksChecked = tasks.filter((item) => item.check === true);
 
   return (
     <div>
@@ -53,13 +52,37 @@ export function TaskBoard() {
         </strong>
         <strong>
           Concluídas{" "}
-          <b>
-            {t.length} de {tasks.length}
-          </b>
+          {tasks.length === 0 ? (
+            <b>0</b>
+          ) : (
+            <b>
+              {tasksChecked.length} de {tasks.length}
+            </b>
+          )}
         </strong>
       </div>
       <ul className={styles.tasks}>
-        {tasks.map((task) => {
+        {tasks.length === 0 ? (
+          <div className={styles.taskBoardEmpty}>
+            <img src={clipboardImg} />
+            <strong>Você ainda não tem tarefas cadastradas</strong>
+            <p>Crie tarefas e organize seus itens a fazer</p>
+          </div>
+        ) : (
+          tasks.map((task) => {
+            return (
+              <li key={task.id}>
+                <Task
+                  id={task.id}
+                  task={task.content}
+                  onDeleteTask={deleteTask}
+                  onChangeStatus={changeStatusTask}
+                />
+              </li>
+            );
+          })
+        )}
+        {/* {tasks.map((task) => {
           if (task) {
             console.log(task);
             return (
@@ -81,8 +104,8 @@ export function TaskBoard() {
                 <p>Crie tarefas e organize seus itens a fazer</p>
               </div>
             );
-          }
-        })}
+          } 
+        })}*/}
       </ul>
     </div>
   );
